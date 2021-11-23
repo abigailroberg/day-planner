@@ -10,9 +10,11 @@ const load = function() {
 $(".task-area").on("click", function () {
     let taskText = $(this).children("p").text().trim()
     
-    let taskInput = $("<textarea>").addClass("col-8").val(taskText)
+    let taskInput = $("<textarea>").addClass("col-8").attr('id', $(this).attr('id')).val(taskText)
 
     $(this).replaceWith(taskInput)
+
+    checkTimes()
 })
 
 // function to add past, present, or future classes to time blocks
@@ -70,11 +72,17 @@ const saveTasks = function() {
 $(".save").on("click", function() {
     // get id of task to save
     const taskId = $(this).attr('id').split('-')[0]
-    console.log(taskId)
+    console.log(`#${taskId}-time`)
 
-    let taskText = $(`#${taskId}-time`).text().trim()
-
+    // get text of tasks written
+    let taskText = $(`#${taskId}-time`).val()
     console.log(taskText)
+
+    // update tasks object
+    tasks[taskId] = taskText
+
+    // run function to save tasks object in local storage
+    saveTasks()
 })
 
 load()
