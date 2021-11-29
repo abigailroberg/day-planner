@@ -9,6 +9,6 @@ A basic web app to keep track of your day. Users can input tasks for each hour o
 * JavaScript
 * JQuery
 ## Deployed
-add link Abigail
+https://abigailroberg.github.io/day-planner/
 ## Contributing
 Developed by Abigail Roberg with starter code from The Coding Boot Camp at The University of Texas at Austin
